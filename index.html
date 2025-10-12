@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Kilian - Aulas de Business English</title>
+    <meta name="description" content="Aulas de Business English com Lucas Kilian. Estude com aluno de Finanças da USP e medalhista da OBLI. Aula experimental gratuita!">
+    <meta property="og:title" content="Lucas Kilian - Aulas de Business English">
+    <meta property="og:description" content="Destrave sua carreira com o inglês que o mercado exige">
+    <meta property="og:url" content="https://lucaskilian.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <style>
+        /* Reset e configurações básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-color: #F8F9FA;
+            --text-color: #212529;
+            --card-bg: #FFFFFF;
+            --section-odd: #FFFFFF;
+            --section-even: #F8F9FA;
+            --accent-color: #28a745;
+            --accent-hover: #218838;
+            --border-color: #e9ecef;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark-theme {
+            --bg-color: #121212;
+            --text-color: #e9ecef;
+            --card-bg: #1e1e1e;
+            --section-odd: #1a1a1a;
+            --section-even: #121212;
+            --accent-color: #34ce57;
+            --accent-hover: #28a745;
+            --border-color: #333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        section {
+            padding: 60px 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Seções ímpares (1, 3, 5...) */
+        section:nth-child(odd) {
+            background-color: var(--section-odd);
+        }
+        
+        /* Seções pares (2, 4, 6...) */
+        section:nth-child(even) {
+            background-color: var(--section-even);
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        /* Botão de alternância de tema */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            width: 60px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle::before {
+            content: '🌙';
+            position: absolute;
+            left: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-theme .theme-toggle::before {
+            content: '☀️';
+            left: 35px;
+        }
+        
+        .toggle-slider {
+            width: 22px;
+            height: 22px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: translateX(0);
+        }
+        
+        .dark-theme .toggle-slider {
+            transform: translateX(30px);
+        }
+        
+        /* Estilo do botão CTA */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        /* Seção Hero */
+        .hero {
+            text-align: center;
+            padding-top: 60px;
+        }
+        
+        .hero h1 {
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Seção Oferta */
+        .offer {
+            text-align: center;
+            border-radius: 10px;
+            padding: 40px 20px;
+        }
+        
+        .offer p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .benefits-list {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 0;
+        }
+        
+        .benefit-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* Seção Credenciais */
+        .credentials {
+            border-radius: 10px;
+            padding: 40px 20px;
+        }
+        
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .credential-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .credential-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .credential-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        /* Seção CTA Final */
+        .final-cta {
+            text-align: center;
+            border-radius: 10px;
+            padding: 50px 20px;
+        }
+        
+        .final-cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--section-odd);
+        }
+        
+        /* Media Queries para Desktop */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de alternância de tema -->
+    <div class="theme-toggle" id="themeToggle">
+        <div class="toggle-slider"></div>
+    </div>
+
+    <!-- Seção Hero (ÍMPAR - 1) -->
+    <section class="hero">
+        <div class="container">
+            <h1>Destrave sua carreira com o inglês que o mercado exige</h1>
+            <p>Aulas de Business English individuais e personalizadas com um estudante de Finanças da USP. Ganhe a confiança para se destacar em entrevistas e no ambiente de trabalho.</p>
+            <a href="https://wa.me/5511948738996?text=Ol%C3%A1%2C+Lucas!+Vim+pelo+seu+site+e+gostaria+de+agendar+minha+aula+experimental+gratuita." class="btn">Agendar Aula Experimental Gratuita</a>
+        </div>
+    </section>
+    
+    <!-- Seção Oferta (PAR - 2) -->
+    <section class="offer">
+        <div class="container">
+            <h2>O que esperar da sua Aula Experimental Gratuita?</h2>
+            <p>Uma sessão de 30 minutos, sem compromisso, para você ver o método na prática.</p>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✔️</div>
+                    <p>Diagnóstico preciso do seu nível de conversação.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✔️</div>
+                    <p>Feedback imediato sobre pronúncia e vocabulário.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✔️</div>
+                    <p>Um plano de ação claro para atingir seus objetivos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção Credenciais (ÍMPAR - 3) -->
+    <section class="credentials">
+        <div class="container">
+            <h2>Minhas Credenciais</h2>
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <div class="credential-icon">🎓</div>
+                    <div class="credential-content">
+                        <h3>Aluno de Finanças na USP-RP</h3>
+                        <p>Entendo o jargão de negócios e as necessidades do mercado corporativo.</p>
+                    </div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">🥈</div>
+                    <div class="credential-content">
+                        <h3>Medalhista de Prata (OBLI)</h3>
+                        <p>Excelência e proficiência em inglês comprovadas em Olimpíada Nacional.</p>
+                    </div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✈️</div>
+                    <div class="credential-content">
+                        <h3>Vivência nos EUA</h3>
+                        <p>Experiência prática com a cultura e a fluidez do idioma no dia a dia.</p>
+                    </div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">👨‍🏫</div>
+                    <div class="credential-content">
+                        <h3>+6 Anos de Experiência</h3>
+                        <p>Método de ensino focado em resultados práticos, desenvolvido desde os 13 anos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção CTA Final (PAR - 4) -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Pronto para dar o próximo passo?</h2>
+            <p>Sua carreira não pode esperar. A primeira aula é por minha conta.</p>
+            <a href="https://wa.me/5511948738996?text=Ol%C3%A1%2C+Lucas!+Vim+pelo+seu+site+e+gostaria+de+agendar+minha+aula+experimental+gratuita." class="btn">Quero minha aula grátis agora!</a>
+        </div>
+    </section>
+    
+    <!-- Rodapé (ÍMPAR - 5) -->
+    <footer>
+        <div class="container">
+            <p>© 2025 - Lucas Kilian. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Alternância de tema
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Verificar preferência salva ou do sistema
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            body.classList.add('dark-theme');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            // Salvar preferência
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
